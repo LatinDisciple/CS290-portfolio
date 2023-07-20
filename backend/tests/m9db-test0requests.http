@@ -1,0 +1,122 @@
+### CREATE 1
+POST http://localhost:3000/book HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Pasta",
+    "description": "Boiled plain pasta",
+    "servings": 1,
+    "ingredients": [
+        {
+        "name": "Apple",
+        "calories" : 10,
+        "weight" : 10
+        }
+    ]
+}
+
+### CREATE 2
+POST http://localhost:3000/log HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Apple",
+    "calories" : 10,
+    "weight" : 10
+}
+
+### CREATE 3
+POST http://localhost:3000/book HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Sushi",
+    "description": "Spicy tuna roll.",
+    "servings": 1,
+    "ingredients": [
+        {
+            "name": "Apple",
+            "calories" : 10,
+            "amount" : 10,
+            "unit": "g"
+        },
+        {
+            "name": "Carrot",
+            "calories" : 10,
+            "amount" : 5,
+            "unit": "ounces"
+        }
+    ]
+}
+
+### UPDATE one recipe document by ID.
+PUT http://localhost:3000/book/64895c22c08098ee2e90b815 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Pasta",
+    "description": "Boiled plain pasta",
+    "servings": 2,
+    "entryDate": "2023-06-13",
+    "ingredients": [
+        {
+            "name": "Apple",
+            "calories" : 10,
+            "amount" : 10,
+            "unit": "g"
+        },
+        {
+            "name": "Carrot",
+            "calories" : 10,
+            "amount" : 5,
+            "unit": "ounces"
+        },
+        {
+            "name": "Onion",
+            "calories": 5,
+            "amount": 20,
+            "unit": "g"
+        }
+    ]
+}
+
+### UPDATE one recipe document by ID.
+PUT http://localhost:3000/book/64895c22c08098ee2e90b815 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Pasta",
+    "description": "Boiled plain pasta",
+    "servings": 2,
+    "entryDate": "2023-06-13",
+    "ingredients": [
+        {
+            "name": "Apple",
+            "calories" : 10,
+            "amount" : 10,
+            "unit": "g"
+        },
+        {
+            "name": "Carrot",
+            "calories" : 10,
+            "amount" : 5,
+            "unit": "ounces"
+        }
+    ]
+}
+
+### RETRIEVE a recipe document by its ID.
+### Replace the following ID with one that exists in the collection.
+GET http://localhost:3000/book/64895c22c08098ee2e90b815
+
+### RETRIEVE all recipe documents.
+GET http://localhost:3000/book HTTP/1.1
+
+### RETRIEVE all ingredient documents in a given recipe _id.
+GET http://localhost:3000/book/64895c22c08098ee2e90b815/list HTTP/1.1
+
+### DELETE by _id.
+DELETE http://localhost:3000/book/64895c22c08098ee2e90b815 HTTP/1.1
+
+### DELETEs ALL documents!
+DELETE http://localhost:3000/book/ HTTP/1.1
